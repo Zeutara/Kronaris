@@ -1,23 +1,23 @@
 const services = [
   {
     title: 'Website Rebuilds',
-    desc: 'Ground-up reconstruction into conversion-driven systems. Not a redesign — an engineered revenue platform.',
-    tags: ['UX Architecture', 'Conversion Design', 'Performance', 'Responsive'],
+    desc: 'Ground-up reconstruction into conversion-driven systems.',
+    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><rect x="4" y="6" width="24" height="18" rx="2"/><path d="M4 12h24"/></svg>,
   },
   {
     title: 'Conversion Optimization',
-    desc: 'Systematic elimination of friction across every touchpoint. Data-driven restructuring that turns traffic into revenue.',
-    tags: ['Funnel Analysis', 'A/B Testing', 'CTA Strategy', 'Analytics'],
+    desc: 'Data-driven restructuring that turns traffic into revenue.',
+    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><path d="M6 26l6-8 5 4 9-14"/><path d="M22 8h4v4"/></svg>,
   },
   {
     title: 'System Infrastructure',
-    desc: 'The invisible architecture that determines whether your business scales or stalls. Backend rebuilt for growth.',
-    tags: ['Automation', 'CRM Integration', 'Database', 'APIs'],
+    desc: 'Backend architecture rebuilt for scale and performance.',
+    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><path d="M16 4L4 10l12 6 12-6L16 4z"/><path d="M4 16l12 6 12-6"/><path d="M4 22l12 6 12-6"/></svg>,
   },
   {
     title: 'Performance Management',
-    desc: 'Continuous monitoring, optimization, and evolution. We don\'t build and disappear — we build and compound.',
-    tags: ['Monitoring', 'Iteration', 'Security', 'Growth'],
+    desc: 'Continuous optimization that compounds with your growth.',
+    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="16" cy="16" r="12"/><path d="M16 10v6l4 3"/></svg>,
   },
 ]
 
@@ -25,36 +25,22 @@ export default function Services() {
   return (
     <section className="py-16 md:py-24" id="services">
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
-        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-          <h2 className="text-3xl md:text-4xl font-extralight text-white tracking-[-0.02em]">
-            What we do
-          </h2>
-          <p className="text-text-muted text-sm max-w-[320px]">
-            Four disciplines. One framework. Measurable outcomes.
-          </p>
+        <div className="reveal mb-12">
+          <h2 className="text-3xl md:text-5xl font-extralight text-white tracking-[-0.02em]">What we do</h2>
         </div>
 
-        <div className="border-t border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((s, i) => (
-            <div key={s.title} className="reveal group border-b border-border py-7 md:py-9" style={{ transitionDelay: `${i * 0.04}s` }}>
-              <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-14">
-                <div className="md:w-[42%] flex items-baseline gap-5">
-                  <span className="text-text-muted/30 text-sm tabular-nums">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="text-xl md:text-2xl font-light text-white tracking-[-0.01em] group-hover:text-gold transition-colors duration-300">
-                    {s.title}
-                  </h3>
-                </div>
-                <div className="md:w-[58%]">
-                  <p className="text-text-secondary text-[15px] leading-[1.7] mb-4">{s.desc}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {s.tags.map(t => (
-                      <span key={t} className="text-[10px] uppercase tracking-[0.18em] text-text-muted/50 border border-border px-3 py-1 group-hover:text-text-muted group-hover:border-border-hover transition-all duration-300">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+            <div key={s.title} className="reveal group bg-bg-card border border-border hover:border-gold/20 p-8 md:p-9 transition-all duration-400 hover:-translate-y-1" style={{ transitionDelay: `${i * 0.06}s` }}>
+              <div className="text-gold/40 group-hover:text-gold/80 transition-colors duration-400 mb-6">
+                {s.icon}
               </div>
+              <h3 className="text-lg md:text-xl font-normal text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                {s.title}
+              </h3>
+              <p className="text-text-secondary text-[15px] leading-[1.65]">
+                {s.desc}
+              </p>
             </div>
           ))}
         </div>

@@ -23,20 +23,20 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-bg/90 backdrop-blur-xl border-b border-border' : 'bg-transparent'}`}>
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between h-16 md:h-[72px]">
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-black/90 backdrop-blur-xl border-b border-border' : 'bg-transparent'}`}>
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between h-24 md:h-28">
           <a href="#" aria-label="Kronaris Home">
-            <img src={logoFull} alt="Kronaris" className="logo-img h-20 md:h-24 w-auto" />
+            <img src={logoFull} alt="Kronaris" className="h-28 md:h-36 w-auto" />
           </a>
 
           <div className="hidden lg:flex items-center gap-9">
             {links.map(l => (
-              <a key={l.href} href={l.href} className="text-xs uppercase tracking-[0.18em] text-text-secondary hover:text-white transition-colors duration-300 relative group py-2">
+              <a key={l.href} href={l.href} className="text-[13px] uppercase tracking-[0.15em] text-text-secondary hover:text-white transition-colors duration-300 relative group py-2">
                 {l.label}
                 <span className="absolute bottom-0 left-0 w-full h-px bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </a>
             ))}
-            <a href="#contact" className="text-[11px] uppercase tracking-[0.18em] text-bg font-medium bg-gold px-6 py-2.5 hover:bg-[#d4ab6e] transition-all duration-300">
+            <a href="#contact" className="text-xs uppercase tracking-[0.15em] text-black font-semibold bg-gold px-6 py-2.5 hover:bg-[#d4ab6e] transition-all duration-300">
               Get Started
             </a>
           </div>
@@ -49,7 +49,7 @@ export default function Nav() {
         </div>
       </nav>
 
-      <div className={`fixed inset-0 z-50 bg-bg flex flex-col items-center justify-center gap-7 transition-opacity duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-50 bg-black flex flex-col items-center justify-center gap-7 transition-opacity duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         {links.map((l, i) => (
           <a key={l.href} href={l.href} onClick={closeMenu}
             className="text-white text-2xl uppercase tracking-[0.25em] font-extralight hover:text-gold transition-all duration-300"
@@ -57,7 +57,7 @@ export default function Nav() {
             {l.label}
           </a>
         ))}
-        <a href="#contact" onClick={closeMenu} className="text-bg text-sm uppercase tracking-[0.18em] font-medium bg-gold px-8 py-3 mt-3 hover:bg-[#d4ab6e] transition-all duration-300"
+        <a href="#contact" onClick={closeMenu} className="text-black text-sm uppercase tracking-[0.18em] font-semibold bg-gold px-8 py-3 mt-3 hover:bg-[#d4ab6e] transition-all duration-300"
           style={{ transitionDelay: menuOpen ? '0.28s' : '0s', opacity: menuOpen ? 1 : 0, transform: menuOpen ? 'translateY(0)' : 'translateY(10px)' }}>
           Get Started
         </a>

@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #050507;
+  --color-bg: #000000;
   --color-bg-card: #0a0a0d;
   --color-bg-elevated: #101014;
-  --color-bg-alt: #08080b;
+  --color-bg-alt: #060609;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #c8c8d0;
-  --color-text-muted: #78788a;
-  --color-text-body: #d8d8e0;
+  --color-text-secondary: #d0d0d8;
+  --color-text-muted: #888898;
+  --color-text-body: #e0e0e6;
   --color-gold: #C9A063;
   --color-gold-dim: rgba(201, 160, 99, 0.10);
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(255, 255, 255, 0.09);
   --color-border-hover: rgba(255, 255, 255, 0.18);
   --font-sans: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
@@ -24,7 +24,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-bg);
+  background: #000;
   color: var(--color-text-body);
   font-family: var(--font-sans);
 }
@@ -44,12 +44,6 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px;
-}
-
-/* Logo: crush near-black to black, then screen makes black = transparent */
-.logo-img {
-  filter: contrast(1.8) brightness(1.15);
-  mix-blend-mode: screen;
 }
 
 .reveal {
@@ -78,5 +72,5 @@ body::after {
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-track { background: #000; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 3px; }
