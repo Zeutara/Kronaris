@@ -33,54 +33,63 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-32 md:py-40 bg-bg-alt" id="process">
-      <div className="max-w-[1320px] mx-auto px-6 md:px-10">
-        <div className="reveal">
-          <div className="text-[10px] uppercase tracking-[0.5em] text-text-muted mb-6">Our Process</div>
-          <h2 className="text-[clamp(28px,4vw,44px)] font-light text-text-primary tracking-[-0.01em] leading-[1.15] max-w-[600px] mb-6">
+    <section className="py-36 md:py-44 bg-bg-alt relative" id="process">
+      {/* Subtle side glow */}
+      <div className="absolute top-1/2 -translate-y-1/2 -left-40 w-[400px] h-[600px] bg-gold/[0.015] rounded-full blur-[150px]" />
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="reveal max-w-[640px]">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-6 h-px bg-gold/50" />
+            <span className="text-[10px] uppercase tracking-[0.5em] text-gold/70">Our Process</span>
+          </div>
+          <h2 className="text-[clamp(30px,4vw,48px)] font-extralight text-text-primary tracking-[-0.02em] leading-[1.12] mb-6">
             Controlled. Precise.<br />Inevitable.
           </h2>
-          <p className="text-text-secondary text-[15px] leading-relaxed max-w-[480px]">
+          <p className="text-text-secondary text-[15px] leading-[1.75] max-w-[480px]">
             Five phases. One outcome. Every engagement follows the same
             disciplined framework — because precision scales, improvisation doesn't.
           </p>
         </div>
 
-        <div className="mt-20 relative">
-          {/* Vertical connector line */}
-          <div className="hidden md:block absolute left-[39px] top-8 bottom-8 w-px bg-border" />
+        <div className="mt-24 relative">
+          {/* Vertical connector */}
+          <div className="hidden md:block absolute left-[40px] top-10 bottom-10 w-px bg-gradient-to-b from-border via-gold/10 to-border" />
 
-          <div className="space-y-0">
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                className="reveal group"
-                style={{ transitionDelay: `${i * 0.06}s` }}
-              >
-                <div className="flex gap-8 md:gap-14 py-10 md:py-14 border-b border-border last:border-b-0">
-                  {/* Number */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-[80px] text-[32px] md:text-[40px] font-extralight text-text-muted/30 group-hover:text-gold/40 transition-colors duration-500 tabular-nums">
-                      {step.num}
-                    </div>
+          {steps.map((step, i) => (
+            <div
+              key={step.num}
+              className="reveal group"
+              style={{ transitionDelay: `${i * 0.06}s` }}
+            >
+              <div className="flex gap-10 md:gap-16 py-12 md:py-16 border-b border-border/50 last:border-b-0">
+                {/* Number */}
+                <div className="relative flex-shrink-0">
+                  <div className="w-[80px] text-[36px] md:text-[44px] font-extralight text-text-muted/20 group-hover:text-gold/30 transition-colors duration-500 tabular-nums tracking-tight">
+                    {step.num}
                   </div>
+                  {/* Dot on connector */}
+                  <div className="hidden md:block absolute left-[40px] top-[22px] w-1.5 h-1.5 rounded-full bg-text-muted/20 group-hover:bg-gold/50 transition-colors duration-500 -translate-x-1/2" />
+                </div>
 
-                  {/* Content */}
-                  <div className="flex-1 max-w-[640px]">
-                    <h3 className="text-2xl md:text-3xl font-light text-text-primary tracking-tight mb-4 group-hover:text-white transition-colors duration-300">
-                      {step.title}
-                    </h3>
-                    <p className="text-text-secondary text-[15px] leading-relaxed mb-4">
-                      {step.desc}
-                    </p>
-                    <span className="text-[11px] uppercase tracking-[0.3em] text-gold/60">
+                {/* Content */}
+                <div className="flex-1 max-w-[640px]">
+                  <h3 className="text-[28px] md:text-[34px] font-extralight text-text-primary tracking-[-0.02em] mb-5 group-hover:text-white transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-text-secondary text-[15px] leading-[1.75] mb-5">
+                    {step.desc}
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-px bg-gold/40" />
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-gold/50 group-hover:text-gold/80 transition-colors duration-300">
                       {step.accent}
                     </span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
