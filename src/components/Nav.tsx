@@ -17,7 +17,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-bg/80 backdrop-blur-xl border-b border-rule' : ''}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black border-b border-rule' : ''}`}>
         <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-24">
           <a href="#">
             <img src={logo} alt="Kronaris" className="h-20 w-auto" />
