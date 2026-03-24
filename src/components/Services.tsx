@@ -1,24 +1,40 @@
 const services = [
-  { n: '01', title: 'Website Rebuilds', desc: 'We rebuild your site into something designed to convert — not just look good.' },
-  { n: '02', title: 'Systems & Automation', desc: 'We connect and streamline your backend so it runs without friction.' },
-  { n: '03', title: 'Conversion Optimization', desc: 'We turn traffic into customers with structure and clarity.' },
-  { n: '04', title: 'Ongoing Growth', desc: 'We continuously improve your system so results keep compounding.' },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18"/></svg>,
+    title: 'Website Rebuilds',
+    desc: 'We rebuild your website into something designed to convert visitors into customers — not just look good.',
+  },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M12 3L3 8l9 5 9-5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg>,
+    title: 'Systems & Automation',
+    desc: 'We connect and streamline everything behind the scenes so your business runs without manual headaches.',
+  },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 20l4-6 4 4 4-8 4 6"/><path d="M20 10v2h-2"/></svg>,
+    title: 'Conversion Optimization',
+    desc: 'We restructure your customer journey so more visitors actually become paying customers.',
+  },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>,
+    title: 'Ongoing Growth',
+    desc: 'We continuously improve your system every month so your results keep getting better over time.',
+  },
 ]
 
 export default function Services() {
   return (
-    <section className="py-20 md:py-[120px]" id="services">
+    <section className="py-24 md:py-32" id="services">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="reveal mb-12 md:mb-16">
-          <h2 className="text-[clamp(28px,3.5vw,36px)] font-medium text-t1 tracking-[-0.02em]">What we do</h2>
+        <div className="reveal text-center mb-14">
+          <p className="text-[13px] uppercase tracking-[0.2em] text-gold mb-3">Services</p>
+          <h2 className="text-[clamp(28px,3.5vw,40px)] font-medium text-t1 tracking-[-0.02em]">What we do</h2>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5">
           {services.map((s, i) => (
-            <div key={s.n} className="reveal group border border-rule p-8 hover:border-rule-2 transition-colors" style={{ transitionDelay: `${i * 0.04}s` }}>
-              <span className="text-[13px] text-t3 block mb-3">{s.n}</span>
-              <h3 className="text-[22px] font-medium text-t1 mb-3">{s.title}</h3>
-              <p className="text-t2 text-[16px] leading-[1.6]">{s.desc}</p>
+            <div key={s.title} className="reveal card p-7 md:p-8" style={{ transitionDelay: `${i * 0.06}s` }}>
+              <div className="text-gold/60 mb-4">{s.icon}</div>
+              <h3 className="text-[20px] font-medium text-t1 mb-2">{s.title}</h3>
+              <p className="text-t2 text-[15px] leading-[1.65]">{s.desc}</p>
             </div>
           ))}
         </div>

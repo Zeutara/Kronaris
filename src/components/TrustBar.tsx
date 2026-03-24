@@ -1,13 +1,13 @@
-const items = ['We don\'t redesign. We rebuild.', 'Execution over theory.', 'Built to convert.', 'Designed to scale.']
+const items = ['We rebuild, not refresh', 'Built to convert', 'Designed to scale', 'Simple, effective systems']
 
 export default function TrustBar() {
   return (
-    <div className="border-y border-rule py-5 bg-bg-2">
+    <div className="py-6 bg-bg-2/50 border-y border-rule">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+        <div className="flex flex-wrap justify-center gap-x-10 gap-y-3">
           {items.map((t, i) => (
-            <span key={i} className="text-[14px] text-t3 flex items-center gap-3">
-              {i > 0 && <span className="text-rule-2 hidden md:inline">·</span>}
+            <span key={i} className="flex items-center gap-3 text-[14px] text-t3">
+              <span className="w-1 h-1 rounded-full bg-gold/40" />
               {t}
             </span>
           ))}

@@ -6,7 +6,6 @@ import Services from './components/Services'
 import BeforeAfter from './components/BeforeAfter'
 import Process from './components/Process'
 import WhyKronaris from './components/WhyKronaris'
-import Results from './components/Results'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -23,7 +22,6 @@ export default function App() {
         <BeforeAfter />
         <Process />
         <WhyKronaris />
-        <Results />
         <CTA />
       </main>
       <Footer />
