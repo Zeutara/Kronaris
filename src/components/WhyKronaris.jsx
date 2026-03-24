@@ -1,28 +1,29 @@
-const points = [
-  { title: 'Authority', desc: 'Every system meets billion-dollar standards.' },
-  { title: 'Speed', desc: 'Full audit in 48 hours. Deployed in weeks.' },
-  { title: 'Control', desc: 'No committees. Total accountability.' },
-  { title: 'Results', desc: 'Measured by what it earns — not how it looks.' },
-]
-
 export default function WhyKronaris() {
   return (
-    <section className="py-16 md:py-24 bg-bg-alt" id="about">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20">
-          <div className="reveal">
-            <h2 className="text-3xl md:text-5xl font-extralight text-white tracking-[-0.02em] mb-8">Why Kronaris</h2>
-            <blockquote className="text-xl md:text-2xl font-extralight text-text-secondary leading-[1.55]">
-              "Small businesses are the backbone of our economy — they deserve the same digital infrastructure as billion-dollar companies."
-            </blockquote>
+    <section className="py-20 md:py-28 bg-surface" id="about">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="reveal md:flex md:gap-20">
+          <div className="md:w-1/2 mb-10 md:mb-0">
+            <h2 className="text-[28px] md:text-[36px] font-light text-white tracking-[-0.02em] leading-tight mb-6">
+              We don't consult.<br />We take over and build.
+            </h2>
+            <p className="text-gray-2 text-[15px] leading-[1.7] mb-6">
+              Most firms give you a strategy deck and wish you luck. We assume full control, rebuild your infrastructure from the ground up, and stay accountable to the outcome — not the deliverable.
+            </p>
+            <p className="text-gray-2 text-[15px] leading-[1.7] border-l-2 border-gold/30 pl-5 italic">
+              Small businesses are the backbone of our economy. They deserve the same level of digital infrastructure as billion-dollar companies.
+            </p>
           </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {points.map((p, i) => (
-              <div key={p.title} className="reveal group bg-bg-card border border-border hover:border-gold/20 p-7 transition-all duration-400" style={{ transitionDelay: `${i * 0.05}s` }}>
-                <span className="text-gold/30 text-xs tracking-wider">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="text-lg font-normal text-white mt-3 mb-2 group-hover:text-gold transition-colors duration-300">{p.title}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{p.desc}</p>
+          <div className="md:w-1/2 grid grid-cols-2 gap-px bg-rule">
+            {[
+              ['Authority', 'Every system we ship meets enterprise-grade standards. No exceptions.'],
+              ['Speed', '48-hour audit. Deployed in weeks. Delay is a tax we don\'t pay.'],
+              ['Control', 'One team. Full ownership. No committees, no hand-offs.'],
+              ['Outcomes', 'We measure in revenue impact — not deliverables shipped.'],
+            ].map(([t, d], i) => (
+              <div key={t} className="reveal bg-surface p-6 group" style={{ transitionDelay: `${i * 0.04}s` }}>
+                <h3 className="text-white text-[16px] font-normal mb-2 group-hover:text-gold transition-colors duration-300">{t}</h3>
+                <p className="text-gray-3 text-[13px] leading-[1.65] group-hover:text-gray-2 transition-colors duration-300">{d}</p>
               </div>
             ))}
           </div>

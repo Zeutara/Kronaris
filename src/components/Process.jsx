@@ -1,53 +1,24 @@
 const steps = [
-  { title: 'Audit', desc: 'Infrastructure analyzed. Delivered in 48 hours.' },
-  { title: 'Takeover', desc: 'Full operational control. One team.' },
-  { title: 'Rebuild', desc: 'Ground-up reconstruction.' },
-  { title: 'Deploy', desc: 'End-to-end launch. Zero downtime.' },
-  { title: 'Scale', desc: 'Ongoing optimization that compounds.' },
+  { n: '01', title: 'Audit', desc: 'We tear down your current infrastructure and identify every leak, bottleneck, and missed opportunity. Delivered in 48 hours.' },
+  { n: '02', title: 'Takeover', desc: 'No committees. No approvals loop. We take full operational control of the rebuild from day one.' },
+  { n: '03', title: 'Rebuild', desc: 'Every element reconstructed to institutional standards. Performance-tested, conversion-optimized, built to scale.' },
+  { n: '04', title: 'Deploy', desc: 'Live in weeks, not months. Full migration, QA, and launch — managed end to end.' },
+  { n: '05', title: 'Compound', desc: 'Ongoing monitoring and optimization. Your infrastructure improves every month, not just at launch.' },
 ]
 
 export default function Process() {
   return (
-    <section className="py-16 md:py-24 bg-bg-alt" id="process">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10">
-        <div className="reveal mb-12">
-          <h2 className="text-3xl md:text-4xl font-extralight text-white tracking-[-0.02em]">How it works</h2>
+    <section className="py-20 md:py-28 bg-surface" id="process">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="reveal mb-14">
+          <h2 className="text-[28px] md:text-[36px] font-light text-white tracking-[-0.02em] leading-tight">Five phases. One outcome.</h2>
         </div>
-
-        {/* Desktop flowchart */}
-        <div className="reveal hidden md:block" style={{ transitionDelay: '0.08s' }}>
-          <div className="relative grid grid-cols-5">
-            {/* Connector line */}
-            <div className="absolute top-5 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent z-0" />
-
-            {steps.map((step, i) => (
-              <div key={step.title} className="relative z-10 flex flex-col items-center group px-2">
-                <div className="w-10 h-10 rounded-full border border-border bg-bg-alt flex items-center justify-center group-hover:border-gold/40 transition-all duration-400">
-                  <div className="w-2 h-2 rounded-full bg-text-muted/30 group-hover:bg-gold transition-all duration-400" />
-                </div>
-                <h3 className="text-base md:text-lg font-light text-white mt-4 mb-1.5 group-hover:text-gold transition-colors duration-300">
-                  {step.title}
-                </h3>
-                <p className="text-text-muted text-xs text-center max-w-[150px] leading-relaxed group-hover:text-text-secondary transition-colors duration-300">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile: vertical */}
-        <div className="md:hidden relative pl-8">
-          <div className="absolute left-[11px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/15 to-transparent" />
-          {steps.map((step, i) => (
-            <div key={step.title} className="reveal relative flex items-start gap-5 py-4" style={{ transitionDelay: `${i * 0.04}s` }}>
-              <div className="absolute left-[-19px] top-5 w-5 h-5 rounded-full border border-border bg-bg-alt flex items-center justify-center">
-                <div className="w-1.5 h-1.5 rounded-full bg-text-muted/30" />
-              </div>
-              <div>
-                <h3 className="text-lg font-light text-white mb-0.5">{step.title}</h3>
-                <p className="text-text-muted text-sm leading-relaxed">{step.desc}</p>
-              </div>
+        <div className="grid md:grid-cols-5 gap-px">
+          {steps.map((s, i) => (
+            <div key={s.n} className="reveal group p-6 md:p-5 border-l border-rule first:border-l-0 md:first:border-l-0" style={{ transitionDelay: `${i * 0.04}s` }}>
+              <span className="text-gold/40 text-[12px] tracking-wider">{s.n}</span>
+              <h3 className="text-white text-[17px] font-normal mt-2 mb-2 group-hover:text-gold transition-colors duration-300">{s.title}</h3>
+              <p className="text-gray-3 text-[13px] leading-[1.65] group-hover:text-gray-2 transition-colors duration-300">{s.desc}</p>
             </div>
           ))}
         </div>

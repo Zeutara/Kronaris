@@ -1,18 +1,16 @@
-import logoFull from '../assets/kronaris-full.png'
+import logo from '../assets/kronaris-full.png'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/40 py-10">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div className="flex items-center gap-8">
-          <img src={logoFull} alt="Kronaris" className="h-14 w-auto" />
-          <div className="hidden md:flex gap-6">
-            {['Services', 'Process', 'About', 'Contact'].map(l => (
-              <a key={l} href={`#${l.toLowerCase()}`} className="text-xs uppercase tracking-[0.15em] text-text-muted hover:text-text-secondary transition-colors duration-300">{l}</a>
-            ))}
-          </div>
+    <footer className="border-t border-rule py-8">
+      <div className="max-w-[1200px] mx-auto px-6 md:flex md:items-center md:justify-between">
+        <img src={logo} alt="Kronaris" className="h-8 mb-4 md:mb-0" />
+        <div className="flex items-center gap-6 text-[12px] text-gray-3">
+          {['Services', 'Process', 'About', 'Contact'].map(l => (
+            <a key={l} href={`#${l.toLowerCase()}`} className="hover:text-gray-2 transition-colors">{l}</a>
+          ))}
         </div>
-        <span className="text-xs text-text-muted/40">&copy; 2025 Kronaris. All rights reserved.</span>
+        <span className="text-[11px] text-gray-3/40 mt-4 md:mt-0 block">&copy; 2025 Kronaris</span>
       </div>
     </footer>
   )

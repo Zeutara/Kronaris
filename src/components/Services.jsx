@@ -1,46 +1,31 @@
 const services = [
-  {
-    title: 'Website Rebuilds',
-    desc: 'Ground-up reconstruction into conversion-driven systems.',
-    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><rect x="4" y="6" width="24" height="18" rx="2"/><path d="M4 12h24"/></svg>,
-  },
-  {
-    title: 'Conversion Optimization',
-    desc: 'Data-driven restructuring that turns traffic into revenue.',
-    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><path d="M6 26l6-8 5 4 9-14"/><path d="M22 8h4v4"/></svg>,
-  },
-  {
-    title: 'System Infrastructure',
-    desc: 'Backend architecture rebuilt for scale and performance.',
-    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><path d="M16 4L4 10l12 6 12-6L16 4z"/><path d="M4 16l12 6 12-6"/><path d="M4 22l12 6 12-6"/></svg>,
-  },
-  {
-    title: 'Performance Management',
-    desc: 'Continuous optimization that compounds with your growth.',
-    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="16" cy="16" r="12"/><path d="M16 10v6l4 3"/></svg>,
-  },
+  { title: 'Website Reconstruction', desc: 'Your site isn\'t underperforming — it was never built to perform. We rebuild it as a system engineered for conversion.' },
+  { title: 'Systems & Automation', desc: 'Fragmented tools drain margin. We replace them with integrated infrastructure that runs without you.' },
+  { title: 'Conversion Architecture', desc: 'Traffic means nothing without a system to capture it. We build the architecture that turns attention into revenue.' },
+  { title: 'Ongoing Optimization', desc: 'We don\'t hand off and disappear. Every system we build is monitored, measured, and improved continuously.' },
 ]
 
 export default function Services() {
   return (
-    <section className="py-16 md:py-24" id="services">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10">
-        <div className="reveal mb-12">
-          <h2 className="text-3xl md:text-5xl font-extralight text-white tracking-[-0.02em]">What we do</h2>
+    <section className="py-20 md:py-28" id="services">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="reveal md:flex md:items-start md:justify-between md:gap-16 mb-14">
+          <h2 className="text-[28px] md:text-[36px] font-light text-white tracking-[-0.02em] leading-tight shrink-0">
+            What we build
+          </h2>
+          <p className="text-gray-2 text-[15px] max-w-[340px] mt-3 md:mt-1 md:text-right">
+            Not features. Not pages. Revenue infrastructure.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="space-y-0 border-t border-rule">
           {services.map((s, i) => (
-            <div key={s.title} className="reveal group bg-bg-card border border-border hover:border-gold/20 p-8 md:p-9 transition-all duration-400 hover:-translate-y-1" style={{ transitionDelay: `${i * 0.06}s` }}>
-              <div className="text-gold/40 group-hover:text-gold/80 transition-colors duration-400 mb-6">
-                {s.icon}
+            <div key={s.title} className="reveal group border-b border-rule py-8 md:py-10 md:flex md:gap-16 md:items-start" style={{ transitionDelay: `${i * 0.04}s` }}>
+              <div className="md:w-[280px] shrink-0 flex items-baseline gap-4 mb-3 md:mb-0">
+                <span className="text-gray-3/40 text-[13px] tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="text-[18px] font-normal text-white group-hover:text-gold transition-colors duration-300">{s.title}</h3>
               </div>
-              <h3 className="text-lg md:text-xl font-normal text-white mb-3 group-hover:text-gold transition-colors duration-300">
-                {s.title}
-              </h3>
-              <p className="text-text-secondary text-[15px] leading-[1.65]">
-                {s.desc}
-              </p>
+              <p className="text-gray-2 text-[15px] leading-[1.7]">{s.desc}</p>
             </div>
           ))}
         </div>
