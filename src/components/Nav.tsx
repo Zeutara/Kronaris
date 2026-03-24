@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import logoK from '../assets/kronaris-k.png'
+import logoFull from '../assets/kronaris-full.png'
 
 const links = ['Services', 'Process', 'About', 'Contact']
 
@@ -18,10 +18,9 @@ export default function Nav() {
   return (
     <>
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-bg/70 backdrop-blur-xl border-b border-rule' : ''}`}>
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[68px]">
-          <a href="#" className="flex items-center gap-2.5">
-            <img src={logoK} alt="Kronaris" className="h-9 w-auto" />
-            <span className="text-[14px] uppercase tracking-[0.18em] text-t1 font-medium hidden sm:inline">Kronaris</span>
+        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-20">
+          <a href="#">
+            <img src={logoFull} alt="Kronaris" className="h-14 w-auto" />
           </a>
           <div className="hidden md:flex items-center gap-8">
             {links.map(l => (
