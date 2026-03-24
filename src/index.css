@@ -2,31 +2,46 @@
 
 @theme {
   --color-bg: #000000;
-  --color-surface: #070709;
-  --color-surface-2: #0d0d10;
-  --color-white: #ffffff;
-  --color-gray-1: #e4e4e8;
-  --color-gray-2: #a1a1ab;
-  --color-gray-3: #5c5c66;
+  --color-s1: #060608;
+  --color-s2: #0a0a0d;
+  --color-s3: #0f0f13;
+  --color-w: #ffffff;
+  --color-g1: #e0e0e6;
+  --color-g2: #999aa6;
+  --color-g3: #5a5a66;
+  --color-g4: #333340;
   --color-gold: #B8945A;
-  --color-rule: rgba(255, 255, 255, 0.08);
+  --color-rule: rgba(255, 255, 255, 0.06);
+  --color-rule-light: rgba(255, 255, 255, 0.10);
   --font-sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
 }
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body { margin: 0; background: #000; color: var(--color-gray-1); font-family: var(--font-sans); font-size: 15px; line-height: 1.65; }
-::selection { background: rgba(184, 148, 90, 0.3); color: #fff; }
+body { margin: 0; background: #000; color: var(--color-g1); font-family: var(--font-sans); font-size: 14px; line-height: 1.6; }
+::selection { background: rgba(184, 148, 90, 0.25); color: #fff; }
 
-.reveal {
-  opacity: 0; transform: translateY(8px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
+.reveal { opacity: 0; transform: translateY(6px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes pulse-line { 0%,100% { opacity: 0.15; } 50% { opacity: 0.4; } }
+@keyframes scan { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
+
+/* Background grid */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
+
+/* Micro label style */
+.label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-g3); }
+.label-gold { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gold); opacity: 0.6; }
+.mono { font-family: var(--font-mono); }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); }

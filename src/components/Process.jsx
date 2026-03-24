@@ -1,26 +1,47 @@
-const steps = [
-  { n: '01', title: 'Audit', desc: 'We tear down your current infrastructure and identify every leak, bottleneck, and missed opportunity. Delivered in 48 hours.' },
-  { n: '02', title: 'Takeover', desc: 'No committees. No approvals loop. We take full operational control of the rebuild from day one.' },
-  { n: '03', title: 'Rebuild', desc: 'Every element reconstructed to institutional standards. Performance-tested, conversion-optimized, built to scale.' },
-  { n: '04', title: 'Deploy', desc: 'Live in weeks, not months. Full migration, QA, and launch — managed end to end.' },
-  { n: '05', title: 'Compound', desc: 'Ongoing monitoring and optimization. Your infrastructure improves every month, not just at launch.' },
+const phases = [
+  { n: '01', title: 'Audit', dur: '48h', desc: 'Full infrastructure teardown. Every system, page, and workflow benchmarked.' },
+  { n: '02', title: 'Takeover', dur: 'Day 3', desc: 'Operational control transferred. No committees. No approval chains.' },
+  { n: '03', title: 'Rebuild', dur: 'Wk 1–4', desc: 'Ground-up reconstruction. Performance-tested. Conversion-optimized.' },
+  { n: '04', title: 'Deploy', dur: 'Wk 5', desc: 'Full migration, QA, and launch. Zero downtime. Managed end to end.' },
+  { n: '05', title: 'Compound', dur: 'Ongoing', desc: 'Continuous monitoring and optimization. Infrastructure improves monthly.' },
 ]
 
 export default function Process() {
   return (
-    <section className="py-20 md:py-28 bg-surface" id="process">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="reveal mb-14">
-          <h2 className="text-[28px] md:text-[36px] font-light text-white tracking-[-0.02em] leading-tight">Five phases. One outcome.</h2>
+    <section className="py-16 md:py-20 bg-s1 border-y border-rule" id="process">
+      <div className="max-w-[1400px] mx-auto px-5">
+        <div className="reveal flex items-end justify-between mb-10">
+          <div>
+            <span className="label-gold block mb-2">Execution Framework</span>
+            <h2 className="text-[24px] md:text-[30px] font-light text-w tracking-[-0.02em]">Five phases. One outcome.</h2>
+          </div>
+          <span className="label hidden md:block">Lifecycle</span>
         </div>
-        <div className="grid md:grid-cols-5 gap-px">
-          {steps.map((s, i) => (
-            <div key={s.n} className="reveal group p-6 md:p-5 border-l border-rule first:border-l-0 md:first:border-l-0" style={{ transitionDelay: `${i * 0.04}s` }}>
-              <span className="text-gold/40 text-[12px] tracking-wider">{s.n}</span>
-              <h3 className="text-white text-[17px] font-normal mt-2 mb-2 group-hover:text-gold transition-colors duration-300">{s.title}</h3>
-              <p className="text-gray-3 text-[13px] leading-[1.65] group-hover:text-gray-2 transition-colors duration-300">{s.desc}</p>
-            </div>
-          ))}
+
+        {/* Timeline */}
+        <div className="reveal relative" style={{ transitionDelay: '0.08s' }}>
+          {/* Connector line — desktop */}
+          <div className="hidden md:block absolute top-[18px] left-0 right-0 h-px bg-rule" />
+
+          <div className="grid md:grid-cols-5 gap-px">
+            {phases.map((p, i) => (
+              <div key={p.n} className="relative group">
+                {/* Node */}
+                <div className="hidden md:flex items-center justify-center w-9 h-9 border border-rule bg-s1 rounded-full mx-auto mb-5 relative z-10 group-hover:border-gold/30 transition-colors">
+                  <span className="mono text-[10px] text-g3 group-hover:text-gold transition-colors">{p.n}</span>
+                </div>
+
+                {/* Content */}
+                <div className="border border-rule bg-s2/30 p-4 md:p-5 group-hover:bg-s2/60 group-hover:border-rule-light transition-all">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-w text-[14px] font-normal group-hover:text-gold transition-colors">{p.title}</h3>
+                    <span className="mono text-[10px] text-g4">{p.dur}</span>
+                  </div>
+                  <p className="text-g3 text-[12px] leading-[1.6] group-hover:text-g2 transition-colors">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

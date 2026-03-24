@@ -1,34 +1,68 @@
-const services = [
-  { title: 'Website Reconstruction', desc: 'Your site isn\'t underperforming — it was never built to perform. We rebuild it as a system engineered for conversion.' },
-  { title: 'Systems & Automation', desc: 'Fragmented tools drain margin. We replace them with integrated infrastructure that runs without you.' },
-  { title: 'Conversion Architecture', desc: 'Traffic means nothing without a system to capture it. We build the architecture that turns attention into revenue.' },
-  { title: 'Ongoing Optimization', desc: 'We don\'t hand off and disappear. Every system we build is monitored, measured, and improved continuously.' },
+const capabilities = [
+  {
+    code: 'WEB-R',
+    title: 'Website Reconstruction',
+    status: 'Core',
+    items: ['Conversion architecture', 'Performance engineering', 'UX systems', 'Mobile infrastructure'],
+  },
+  {
+    code: 'SYS-A',
+    title: 'Systems & Automation',
+    status: 'Core',
+    items: ['Workflow automation', 'CRM integration', 'Backend architecture', 'API infrastructure'],
+  },
+  {
+    code: 'CNV-O',
+    title: 'Conversion Optimization',
+    status: 'Core',
+    items: ['Funnel reconstruction', 'A/B framework', 'Analytics systems', 'Revenue tracking'],
+  },
+  {
+    code: 'PFM-M',
+    title: 'Performance Management',
+    status: 'Ongoing',
+    items: ['Continuous monitoring', 'Iterative optimization', 'Security management', 'Growth engineering'],
+  },
 ]
 
 export default function Services() {
   return (
-    <section className="py-20 md:py-28" id="services">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="reveal md:flex md:items-start md:justify-between md:gap-16 mb-14">
-          <h2 className="text-[28px] md:text-[36px] font-light text-white tracking-[-0.02em] leading-tight shrink-0">
-            What we build
-          </h2>
-          <p className="text-gray-2 text-[15px] max-w-[340px] mt-3 md:mt-1 md:text-right">
-            Not features. Not pages. Revenue infrastructure.
-          </p>
+    <section className="py-16 md:py-20 bg-grid" id="services">
+      <div className="max-w-[1400px] mx-auto px-5">
+        <div className="reveal flex items-end justify-between mb-8">
+          <div>
+            <span className="label-gold block mb-2">Capabilities</span>
+            <h2 className="text-[24px] md:text-[30px] font-light text-w tracking-[-0.02em]">What we build</h2>
+          </div>
+          <span className="label hidden md:block">4 Divisions</span>
         </div>
 
-        <div className="space-y-0 border-t border-rule">
-          {services.map((s, i) => (
-            <div key={s.title} className="reveal group border-b border-rule py-8 md:py-10 md:flex md:gap-16 md:items-start" style={{ transitionDelay: `${i * 0.04}s` }}>
-              <div className="md:w-[280px] shrink-0 flex items-baseline gap-4 mb-3 md:mb-0">
-                <span className="text-gray-3/40 text-[13px] tabular-nums">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="text-[18px] font-normal text-white group-hover:text-gold transition-colors duration-300">{s.title}</h3>
-              </div>
-              <p className="text-gray-2 text-[15px] leading-[1.7]">{s.desc}</p>
-            </div>
-          ))}
+        {/* Table header */}
+        <div className="hidden md:grid grid-cols-[100px_1fr_80px_1fr] gap-4 py-2.5 border-y border-rule-light text-[10px] tracking-[0.12em] uppercase text-g4">
+          <span>Code</span>
+          <span>Division</span>
+          <span>Status</span>
+          <span>Capabilities</span>
         </div>
+
+        {/* Table rows */}
+        {capabilities.map((c, i) => (
+          <div key={c.code} className="reveal group border-b border-rule py-4 md:py-5 md:grid md:grid-cols-[100px_1fr_80px_1fr] md:gap-4 md:items-start hover:bg-s1/50 transition-colors px-1 -mx-1" style={{ transitionDelay: `${i * 0.04}s` }}>
+            <span className="mono text-[12px] text-g3 hidden md:block">{c.code}</span>
+            <h3 className="text-w text-[15px] font-normal group-hover:text-gold transition-colors duration-300 mb-2 md:mb-0">
+              <span className="mono text-g3 text-[11px] mr-2 md:hidden">{c.code}</span>
+              {c.title}
+            </h3>
+            <span className={`hidden md:inline-block text-[10px] tracking-wider uppercase ${c.status === 'Core' ? 'text-g3' : 'text-gold/50'}`}>{c.status}</span>
+            <div className="flex flex-wrap gap-x-4 gap-y-1">
+              {c.items.map(item => (
+                <span key={item} className="text-[12px] text-g2 flex items-center gap-1.5">
+                  <span className="w-0.5 h-0.5 bg-g4 rounded-full" />{item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

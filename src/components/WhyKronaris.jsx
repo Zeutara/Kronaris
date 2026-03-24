@@ -1,31 +1,54 @@
+const metrics = [
+  { label: 'Avg. Build Time', value: '4 weeks', sub: 'End to end' },
+  { label: 'Client Retention', value: '94%', sub: 'Post-rebuild' },
+  { label: 'Revenue Impact', value: '+$2.1M', sub: 'Cumulative' },
+  { label: 'System Uptime', value: '99.98%', sub: 'Trailing 12mo' },
+]
+
 export default function WhyKronaris() {
   return (
-    <section className="py-20 md:py-28 bg-surface" id="about">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="reveal md:flex md:gap-20">
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <h2 className="text-[28px] md:text-[36px] font-light text-white tracking-[-0.02em] leading-tight mb-6">
-              We don't consult.<br />We take over and build.
-            </h2>
-            <p className="text-gray-2 text-[15px] leading-[1.7] mb-6">
-              Most firms give you a strategy deck and wish you luck. We assume full control, rebuild your infrastructure from the ground up, and stay accountable to the outcome — not the deliverable.
-            </p>
-            <p className="text-gray-2 text-[15px] leading-[1.7] border-l-2 border-gold/30 pl-5 italic">
-              Small businesses are the backbone of our economy. They deserve the same level of digital infrastructure as billion-dollar companies.
-            </p>
+    <section className="py-16 md:py-20 bg-s1 border-y border-rule" id="about">
+      <div className="max-w-[1400px] mx-auto px-5">
+        <div className="reveal mb-10">
+          <span className="label-gold block mb-2">Why Kronaris</span>
+          <h2 className="text-[24px] md:text-[30px] font-light text-w tracking-[-0.02em]">We don't consult. We take over and build.</h2>
+        </div>
+
+        <div className="reveal grid lg:grid-cols-3 gap-px bg-rule" style={{ transitionDelay: '0.06s' }}>
+          {/* Belief panel */}
+          <div className="lg:col-span-2 bg-s1 p-6 md:p-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
+              {[
+                ['Authority', 'Every system we ship meets enterprise-grade standards. We don\'t cut corners and we don\'t ship drafts.'],
+                ['Speed', '48-hour audit. Full rebuild deployed in weeks. Delay is a tax on revenue — we don\'t pay it.'],
+                ['Control', 'One team. Full ownership. No committees, no hand-offs, no waiting on approvals.'],
+                ['Outcomes', 'We measure success by revenue impact — not pages shipped or features launched.'],
+              ].map(([t, d]) => (
+                <div key={t} className="group">
+                  <h3 className="text-w text-[14px] font-normal mb-1.5 group-hover:text-gold transition-colors">{t}</h3>
+                  <p className="text-g3 text-[13px] leading-[1.65]">{d}</p>
+                </div>
+              ))}
+            </div>
+            <div className="border-t border-rule pt-5">
+              <p className="text-g2 text-[14px] leading-[1.7] border-l border-gold/30 pl-4 italic max-w-[500px]">
+                Small businesses are the backbone of our economy. They deserve the same level of digital infrastructure as billion-dollar companies.
+              </p>
+            </div>
           </div>
-          <div className="md:w-1/2 grid grid-cols-2 gap-px bg-rule">
-            {[
-              ['Authority', 'Every system we ship meets enterprise-grade standards. No exceptions.'],
-              ['Speed', '48-hour audit. Deployed in weeks. Delay is a tax we don\'t pay.'],
-              ['Control', 'One team. Full ownership. No committees, no hand-offs.'],
-              ['Outcomes', 'We measure in revenue impact — not deliverables shipped.'],
-            ].map(([t, d], i) => (
-              <div key={t} className="reveal bg-surface p-6 group" style={{ transitionDelay: `${i * 0.04}s` }}>
-                <h3 className="text-white text-[16px] font-normal mb-2 group-hover:text-gold transition-colors duration-300">{t}</h3>
-                <p className="text-gray-3 text-[13px] leading-[1.65] group-hover:text-gray-2 transition-colors duration-300">{d}</p>
-              </div>
-            ))}
+
+          {/* Metrics panel */}
+          <div className="bg-s1 p-6 md:p-8 flex flex-col">
+            <span className="label mb-4">Performance</span>
+            <div className="flex-1 grid grid-cols-2 gap-px bg-rule">
+              {metrics.map(m => (
+                <div key={m.label} className="bg-s1 p-4 flex flex-col">
+                  <span className="label mb-2">{m.label}</span>
+                  <span className="text-w text-[20px] font-light mono">{m.value}</span>
+                  <span className="text-[10px] text-g4 mono mt-0.5">{m.sub}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
