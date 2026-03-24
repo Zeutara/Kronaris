@@ -1,92 +1,64 @@
 const services = [
   {
-    num: '01',
-    title: 'Full Website Rebuilds',
-    desc: 'Complete reconstruction of your digital presence into a conversion-driven system. Not a redesign — a ground-up rebuild engineered for revenue.',
-    details: ['Architecture & UX strategy', 'Conversion-optimized design', 'Performance engineering', 'Mobile-first responsive systems'],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6" r="0.5" fill="currentColor"/><circle cx="9" cy="6" r="0.5" fill="currentColor"/></svg>
-    ),
+    title: 'Website Rebuilds',
+    desc: 'Ground-up reconstruction into conversion-driven systems. Not a redesign — an engineered revenue platform.',
+    tags: ['UX Architecture', 'Conversion Design', 'Performance', 'Responsive'],
   },
   {
-    num: '02',
     title: 'Conversion Optimization',
-    desc: 'Systematic elimination of friction across every customer touchpoint. Data-driven restructuring that turns visitors into revenue.',
-    details: ['Funnel analysis & reconstruction', 'A/B testing frameworks', 'CTA & messaging optimization', 'Analytics infrastructure'],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round"><path d="M4 20l4-4 4 4 4-8 4 4"/><path d="M20 8v4h-4"/></svg>
-    ),
+    desc: 'Systematic elimination of friction across every touchpoint. Data-driven restructuring that turns traffic into revenue.',
+    tags: ['Funnel Analysis', 'A/B Testing', 'CTA Strategy', 'Analytics'],
   },
   {
-    num: '03',
-    title: 'Backend & System Infrastructure',
-    desc: 'The invisible architecture that determines whether your business scales or stalls. We rebuild the systems your team depends on.',
-    details: ['Workflow automation', 'CRM & tool integration', 'Database architecture', 'API development'],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-    ),
+    title: 'System Infrastructure',
+    desc: 'The invisible architecture that determines whether your business scales or stalls. Backend rebuilt for growth.',
+    tags: ['Automation', 'CRM Integration', 'Database', 'APIs'],
   },
   {
-    num: '04',
-    title: 'Ongoing Performance Management',
-    desc: 'Continuous monitoring, optimization, and evolution of your digital infrastructure. We don\'t build and disappear.',
-    details: ['Performance monitoring', 'Iterative improvement cycles', 'Security & uptime management', 'Growth-driven updates'],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-    ),
+    title: 'Performance Management',
+    desc: 'Continuous monitoring, optimization, and evolution. We don\'t build and disappear — we build and compound.',
+    tags: ['Monitoring', 'Iteration', 'Security', 'Growth'],
   },
 ]
 
 export default function Services() {
   return (
-    <section className="py-36 md:py-44" id="services">
+    <section className="py-24 md:py-32" id="services">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="reveal max-w-[640px]">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-6 h-px bg-gold/50" />
-            <span className="text-[10px] uppercase tracking-[0.5em] text-gold/70">What We Do</span>
-          </div>
-          <h2 className="text-[clamp(30px,4vw,48px)] font-extralight text-text-primary tracking-[-0.02em] leading-[1.12]">
-            Four pillars of<br />digital reconstruction.
+        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <h2 className="text-[clamp(26px,3.5vw,42px)] font-extralight text-text-primary tracking-[-0.02em] leading-[1.15]">
+            What we do
           </h2>
-          <p className="text-text-secondary text-[15px] leading-relaxed mt-6 max-w-[440px]">
-            Every engagement is structured around the same four disciplines — because institutional outcomes require institutional process.
+          <p className="text-text-muted text-[13px] md:text-sm max-w-[320px]">
+            Four disciplines. One integrated framework. Every engagement is built around measurable outcomes.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-[1px] mt-20 bg-border/50 rounded-sm overflow-hidden">
+        <div className="border-t border-border">
           {services.map((s, i) => (
             <div
-              key={s.num}
-              className="reveal bg-bg p-10 md:p-14 group hover:bg-bg-card transition-all duration-500 relative"
-              style={{ transitionDelay: `${i * 0.08}s` }}
+              key={s.title}
+              className="reveal group border-b border-border py-10 md:py-12 cursor-default"
+              style={{ transitionDelay: `${i * 0.05}s` }}
             >
-              {/* Gold accent line on hover */}
-              <div className="absolute top-0 left-0 w-full h-px bg-gold/0 group-hover:bg-gold/20 transition-all duration-500" />
-
-              <div className="flex items-center justify-between mb-8">
-                <div className="text-gold/40 group-hover:text-gold/70 transition-colors duration-300">
-                  {s.icon}
+              <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16">
+                <div className="md:w-[45%] flex items-baseline gap-6">
+                  <span className="text-text-muted/30 text-sm tabular-nums font-light">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="text-[22px] md:text-[28px] font-extralight text-text-primary tracking-[-0.02em] group-hover:text-white transition-colors duration-300">
+                    {s.title}
+                  </h3>
                 </div>
-                <div className="text-[11px] tracking-[0.4em] text-text-muted/40 group-hover:text-gold/50 transition-colors duration-300 font-light">
-                  {s.num}
+                <div className="md:w-[55%] md:pt-1">
+                  <p className="text-text-secondary text-[14px] leading-[1.75] mb-5">{s.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {s.tags.map((t) => (
+                      <span key={t} className="text-[10px] uppercase tracking-[0.2em] text-text-muted/60 border border-border px-3 py-1 group-hover:text-text-muted group-hover:border-border-hover transition-all duration-400">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              <h3 className="text-[22px] md:text-2xl font-light text-text-primary tracking-[-0.01em] mb-4 group-hover:text-white transition-colors duration-300">
-                {s.title}
-              </h3>
-              <p className="text-text-secondary text-[14px] leading-[1.75] mb-8">
-                {s.desc}
-              </p>
-              <ul className="space-y-3">
-                {s.details.map((d) => (
-                  <li key={d} className="flex items-center gap-3 text-[13px] text-text-muted group-hover:text-text-secondary transition-colors duration-300">
-                    <span className="w-1 h-1 rounded-full bg-gold/30 group-hover:bg-gold/60 flex-shrink-0 transition-colors duration-300" />
-                    {d}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>

@@ -1,92 +1,71 @@
 const steps = [
-  {
-    num: '01',
-    title: 'Audit',
-    desc: 'We disassemble your current digital infrastructure. Every page, system, workflow, and touchpoint is analyzed against conversion benchmarks and industry standards.',
-    accent: 'Comprehensive analysis delivered within 48 hours.',
-  },
-  {
-    num: '02',
-    title: 'Takeover',
-    desc: 'We assume full operational control. No back-and-forth. No design-by-committee. Our team takes ownership of the rebuild from architecture to deployment.',
-    accent: 'Single point of accountability.',
-  },
-  {
-    num: '03',
-    title: 'Rebuild',
-    desc: 'Ground-up reconstruction of your digital presence. Every element engineered for conversion, performance, and scale. Built to institutional standards.',
-    accent: 'Revenue-engineered infrastructure.',
-  },
-  {
-    num: '04',
-    title: 'Deploy',
-    desc: 'Launch with precision. Migration, QA, performance testing, and go-live managed entirely by our team. Zero downtime. Zero guesswork.',
-    accent: 'Managed deployment, zero risk.',
-  },
-  {
-    num: '05',
-    title: 'Scale',
-    desc: 'Ongoing optimization, monitoring, and evolution. Your infrastructure grows with your business. We don\'t build and disappear — we build and compound.',
-    accent: 'Continuous compounding growth.',
-  },
+  { title: 'Audit', desc: 'Infrastructure analyzed against conversion benchmarks.' },
+  { title: 'Takeover', desc: 'We assume full operational control.' },
+  { title: 'Rebuild', desc: 'Ground-up reconstruction to institutional standards.' },
+  { title: 'Deploy', desc: 'End-to-end launch. Zero downtime.' },
+  { title: 'Scale', desc: 'Ongoing optimization that compounds.' },
 ]
 
 export default function Process() {
   return (
-    <section className="py-36 md:py-44 bg-bg-alt relative" id="process">
-      {/* Subtle side glow */}
-      <div className="absolute top-1/2 -translate-y-1/2 -left-40 w-[400px] h-[600px] bg-gold/[0.015] rounded-full blur-[150px]" />
-
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="reveal max-w-[640px]">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-6 h-px bg-gold/50" />
-            <span className="text-[10px] uppercase tracking-[0.5em] text-gold/70">Our Process</span>
-          </div>
-          <h2 className="text-[clamp(30px,4vw,48px)] font-extralight text-text-primary tracking-[-0.02em] leading-[1.12] mb-6">
-            Controlled. Precise.<br />Inevitable.
+    <section className="py-20 md:py-28 bg-bg-alt" id="process">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="reveal mb-14">
+          <h2 className="text-[clamp(26px,3.5vw,42px)] font-extralight text-text-primary tracking-[-0.02em] leading-[1.15]">
+            How it works
           </h2>
-          <p className="text-text-secondary text-[15px] leading-[1.75] max-w-[480px]">
-            Five phases. One outcome. Every engagement follows the same
-            disciplined framework — because precision scales, improvisation doesn't.
-          </p>
         </div>
 
-        <div className="mt-24 relative">
-          {/* Vertical connector */}
-          <div className="hidden md:block absolute left-[40px] top-10 bottom-10 w-px bg-gradient-to-b from-border via-gold/10 to-border" />
+        {/* Desktop flowchart */}
+        <div className="reveal hidden md:block" style={{ transitionDelay: '0.1s' }}>
+          {/* Step labels row */}
+          <div className="grid grid-cols-5 gap-0">
+            {steps.map((step, i) => (
+              <div key={step.title} className="text-center px-3">
+                <span className="text-gold/40 text-[10px] tracking-[0.3em]">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Flow nodes + connectors */}
+          <div className="relative grid grid-cols-5 gap-0 mt-4">
+            {/* Connector line spanning all nodes */}
+            <div className="absolute top-[19px] left-[10%] right-[10%] h-px bg-gradient-to-r from-border via-gold/15 to-border z-0" />
+
+            {steps.map((step, i) => (
+              <div key={step.title} className="relative z-10 flex flex-col items-center group">
+                {/* Node dot */}
+                <div className="w-[38px] h-[38px] rounded-full border border-border bg-bg-alt flex items-center justify-center group-hover:border-gold/30 group-hover:bg-bg-card transition-all duration-400">
+                  <div className="w-2 h-2 rounded-full bg-text-muted/30 group-hover:bg-gold/60 transition-all duration-400" />
+                </div>
+                {/* Title */}
+                <h3 className="text-[15px] font-light text-text-primary mt-5 mb-2 group-hover:text-white transition-colors duration-300">
+                  {step.title}
+                </h3>
+                {/* Description */}
+                <p className="text-text-muted text-[12px] leading-[1.6] text-center max-w-[160px] group-hover:text-text-secondary transition-colors duration-300">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: vertical flow */}
+        <div className="md:hidden relative pl-8">
+          {/* Vertical line */}
+          <div className="absolute left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-border via-gold/10 to-border" />
 
           {steps.map((step, i) => (
-            <div
-              key={step.num}
-              className="reveal group"
-              style={{ transitionDelay: `${i * 0.06}s` }}
-            >
-              <div className="flex gap-10 md:gap-16 py-12 md:py-16 border-b border-border/50 last:border-b-0">
-                {/* Number */}
-                <div className="relative flex-shrink-0">
-                  <div className="w-[80px] text-[36px] md:text-[44px] font-extralight text-text-muted/20 group-hover:text-gold/30 transition-colors duration-500 tabular-nums tracking-tight">
-                    {step.num}
-                  </div>
-                  {/* Dot on connector */}
-                  <div className="hidden md:block absolute left-[40px] top-[22px] w-1.5 h-1.5 rounded-full bg-text-muted/20 group-hover:bg-gold/50 transition-colors duration-500 -translate-x-1/2" />
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 max-w-[640px]">
-                  <h3 className="text-[28px] md:text-[34px] font-extralight text-text-primary tracking-[-0.02em] mb-5 group-hover:text-white transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-text-secondary text-[15px] leading-[1.75] mb-5">
-                    {step.desc}
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-4 h-px bg-gold/40" />
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-gold/50 group-hover:text-gold/80 transition-colors duration-300">
-                      {step.accent}
-                    </span>
-                  </div>
-                </div>
+            <div key={step.title} className="reveal relative flex items-start gap-6 py-5" style={{ transitionDelay: `${i * 0.05}s` }}>
+              {/* Node dot */}
+              <div className="absolute left-[-19px] top-[26px] w-[22px] h-[22px] rounded-full border border-border bg-bg-alt flex items-center justify-center">
+                <div className="w-1.5 h-1.5 rounded-full bg-text-muted/30" />
+              </div>
+              <div>
+                <span className="text-gold/30 text-[10px] tracking-[0.3em]">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="text-[17px] font-light text-text-primary mt-1 mb-1">{step.title}</h3>
+                <p className="text-text-muted text-[13px] leading-[1.6]">{step.desc}</p>
               </div>
             </div>
           ))}

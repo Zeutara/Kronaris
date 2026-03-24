@@ -34,7 +34,6 @@ body {
   color: #fff;
 }
 
-/* Grain overlay */
 body::after {
   content: '';
   position: fixed;
@@ -47,16 +46,22 @@ body::after {
   background-size: 200px;
 }
 
-/* Logo transparency on dark bg */
-.logo-blend {
-  mix-blend-mode: screen;
+/* Logo mask — uses image luminance to cut out black bg */
+.logo-mask {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 60%, #C9A063 100%);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center left;
+  mask-position: center left;
 }
 
-/* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
@@ -64,38 +69,22 @@ body::after {
   transform: translateY(0);
 }
 
-/* Marquee */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* Hero entrance */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Glow pulse */
 @keyframes glowPulse {
-  0%, 100% { opacity: 0.04; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.07; transform: translate(-50%, -50%) scale(1.08); }
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.14);
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.12); }
