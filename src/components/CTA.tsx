@@ -6,8 +6,8 @@ export default function CTA() {
   const [open, setOpen] = useState(false)
   const [done, setDone] = useState(false)
   const [f, setF] = useState({ name: '', company: '', website: '', revenue: '', issue: '' })
-  const set = k => e => setF(p => ({ ...p, [k]: e.target.value }))
-  const submit = e => { e.preventDefault(); console.log('Lead:', f); setDone(true) }
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setF(p => ({ ...p, [k]: e.target.value }))
+  const submit = (e: React.FormEvent) => { e.preventDefault(); console.log('Lead:', f); setDone(true) }
   const inputCls = 'w-full bg-transparent border border-rule text-t1 text-[14px] px-4 py-3 placeholder:text-t3 focus:border-gold/40 focus:outline-none transition-colors'
 
   return (
