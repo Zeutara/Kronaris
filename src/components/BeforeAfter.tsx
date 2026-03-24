@@ -18,52 +18,34 @@ export default function BeforeAfter() {
           <h2 className="text-[clamp(28px,3.5vw,40px)] font-medium text-t1 tracking-[-0.02em]">Not another agency.</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-          {/* Others card — dim, receding */}
-          <div className="reveal rounded-2xl border border-rule bg-bg-2/40 p-7 md:p-9 relative opacity-80">
-            <div className="flex items-center gap-2 mb-8">
-              <span className="w-2 h-2 rounded-full bg-t3/20" />
-              <h3 className="text-[15px] font-medium text-t3 uppercase tracking-wider">Other Firms</h3>
-            </div>
-            <div className="space-y-6">
-              {rows.map((r, i) => (
-                <div key={i}>
-                  <span className="text-[11px] text-t3/50 uppercase tracking-wider block mb-1">{r.feature}</span>
-                  <div className="flex items-start gap-2.5">
-                    <span className="text-t3/30 mt-0.5 shrink-0">&times;</span>
-                    <span className="text-[15px] text-t3 leading-snug">{r.others}</span>
-                  </div>
+        {/* Comparison rows */}
+        <div className="space-y-4">
+          {rows.map((r, i) => (
+            <div key={i} className="reveal grid md:grid-cols-[1fr_1fr] gap-3 md:gap-4" style={{ transitionDelay: `${i * 0.04}s` }}>
+              {/* Others side */}
+              <div className="rounded-xl bg-bg-2 border border-rule p-5 md:p-6 flex items-start gap-4">
+                <div className="shrink-0 mt-1 w-5 h-5 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                  <span className="text-red-400/60 text-[10px]">&times;</span>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Kronaris card — elevated, premium */}
-          <div className="reveal relative" style={{ transitionDelay: '0.08s' }}>
-            {/* Glow */}
-            <div className="absolute -inset-3 bg-gold/[0.04] rounded-3xl blur-[30px]" />
-
-            <div className="relative rounded-2xl border border-gold/20 bg-gradient-to-br from-bg-3 to-bg-2 p-7 md:p-9 h-full">
-              {/* Gold top accent */}
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-
-              <div className="flex items-center gap-2 mb-8">
-                <span className="w-2 h-2 rounded-full bg-gold/70" />
-                <h3 className="text-[15px] font-medium text-gold uppercase tracking-wider">Kronaris</h3>
+                <div>
+                  <span className="text-[11px] text-t3/60 uppercase tracking-wider block mb-1">{r.feature} — Other firms</span>
+                  <span className="text-[15px] text-t2 leading-snug">{r.others}</span>
+                </div>
               </div>
-              <div className="space-y-6">
-                {rows.map((r, i) => (
-                  <div key={i}>
-                    <span className="text-[11px] text-t3/50 uppercase tracking-wider block mb-1">{r.feature}</span>
-                    <div className="flex items-start gap-2.5">
-                      <span className="text-gold/60 mt-0.5 shrink-0">&#10003;</span>
-                      <span className="text-[15px] text-t1 leading-snug">{r.kronaris}</span>
-                    </div>
-                  </div>
-                ))}
+
+              {/* Kronaris side */}
+              <div className="rounded-xl bg-gradient-to-r from-bg-3 to-bg-3/80 border border-gold/15 p-5 md:p-6 flex items-start gap-4 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gold/30 rounded-r" />
+                <div className="shrink-0 mt-1 w-5 h-5 rounded-full bg-gold/10 border border-gold/25 flex items-center justify-center">
+                  <span className="text-gold text-[10px]">&#10003;</span>
+                </div>
+                <div>
+                  <span className="text-[11px] text-gold/40 uppercase tracking-wider block mb-1">{r.feature} — Kronaris</span>
+                  <span className="text-[15px] text-t1 leading-snug font-medium">{r.kronaris}</span>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
