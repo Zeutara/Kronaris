@@ -1,3 +1,5 @@
+import logoK from '../assets/kronaris-k.png'
+
 export default function Hero() {
   return (
     <header className="pt-28 pb-20 md:pt-40 md:pb-32 relative overflow-hidden" id="hero">
@@ -8,7 +10,12 @@ export default function Hero() {
 
           {/* Left — Copy */}
           <div className="opacity-0 animate-[fadeIn_0.6s_0.05s_forwards]">
-            <p className="text-[13px] uppercase tracking-[0.2em] text-gold mb-5">Kronaris</p>
+            {/* Large K logo + Kronaris name */}
+            <div className="flex items-center gap-4 mb-8">
+              <img src={logoK} alt="" className="h-16 md:h-20 w-auto" />
+              <span className="text-[15px] uppercase tracking-[0.25em] text-gold font-medium">Kronaris</span>
+            </div>
+
             <h1 className="text-[clamp(36px,5.5vw,60px)] font-medium text-t1 leading-[1.1] tracking-[-0.02em] mb-6">
               Your website should help you grow, not hold you back.
             </h1>
@@ -31,14 +38,12 @@ export default function Hero() {
               <div className="absolute -inset-4 bg-gold/[0.04] rounded-3xl blur-[40px]" />
 
               <div className="relative bg-gradient-to-br from-bg-3/90 to-bg-2/90 border border-rule-2 rounded-2xl p-7 md:p-9 backdrop-blur-sm">
-                {/* Header */}
                 <div className="text-center mb-8">
                   <div className="w-3 h-3 rounded-full bg-gold/40 mx-auto mb-4" />
                   <h3 className="text-[17px] text-t1 font-medium mb-1">Does this sound like your business?</h3>
                   <p className="text-[13px] text-t3">Check the ones that apply</p>
                 </div>
 
-                {/* Checklist */}
                 <div className="space-y-3 mb-8">
                   {[
                     'Your website looks outdated and you know it',
@@ -56,11 +61,8 @@ export default function Hero() {
                   ))}
                 </div>
 
-                {/* Bottom CTA */}
                 <div className="text-center pt-5 border-t border-rule">
-                  <p className="text-[13px] text-t3 mb-3">
-                    Even one? You're losing customers every single day.
-                  </p>
+                  <p className="text-[13px] text-t3 mb-3">Even one? You're losing customers every single day.</p>
                   <a href="#contact" className="inline-flex items-center gap-2 text-[13px] text-gold hover:text-gold-h transition-colors font-medium">
                     Get a free assessment
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
