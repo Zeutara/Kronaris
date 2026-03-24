@@ -25,19 +25,21 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — "Does this sound familiar?" panel */}
+          {/* Right — Panel */}
           <div className="opacity-0 animate-[fadeIn_0.7s_0.2s_forwards]">
             <div className="relative">
               <div className="absolute -inset-4 bg-gold/[0.04] rounded-3xl blur-[40px]" />
 
-              <div className="relative bg-gradient-to-br from-bg-3/90 to-bg-2/90 border border-rule-2 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-2 h-2 rounded-full bg-gold/60" />
-                  <span className="text-[13px] text-t2">Does this sound like your business?</span>
+              <div className="relative bg-gradient-to-br from-bg-3/90 to-bg-2/90 border border-rule-2 rounded-2xl p-7 md:p-9 backdrop-blur-sm">
+                {/* Header */}
+                <div className="text-center mb-8">
+                  <div className="w-3 h-3 rounded-full bg-gold/40 mx-auto mb-4" />
+                  <h3 className="text-[17px] text-t1 font-medium mb-1">Does this sound like your business?</h3>
+                  <p className="text-[13px] text-t3">Check the ones that apply</p>
                 </div>
 
-                {/* Pain points checklist */}
-                <div className="space-y-4 mb-7">
+                {/* Checklist */}
+                <div className="space-y-3 mb-8">
                   {[
                     'Your website looks outdated and you know it',
                     'People visit but never reach out or buy',
@@ -45,19 +47,19 @@ export default function Hero() {
                     'You\'ve outgrown your current setup',
                     'You know you\'re leaving money on the table',
                   ].map((item, i) => (
-                    <label key={i} className="flex items-start gap-3 group cursor-default">
-                      <span className="mt-0.5 w-4 h-4 rounded border border-rule-2 bg-bg/50 flex items-center justify-center shrink-0 group-hover:border-gold/30 transition-colors">
-                        <span className="text-gold text-[10px]">&#10003;</span>
+                    <div key={i} className="flex items-center gap-3.5 bg-bg/30 rounded-lg px-4 py-3 border border-rule/50 group hover:border-gold/20 transition-colors cursor-default">
+                      <span className="w-5 h-5 rounded-md bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+                        <span className="text-gold text-[11px]">&#10003;</span>
                       </span>
-                      <span className="text-[14px] text-t2 leading-snug group-hover:text-t1 transition-colors">{item}</span>
-                    </label>
+                      <span className="text-[14px] text-t2 group-hover:text-t1 transition-colors">{item}</span>
+                    </div>
                   ))}
                 </div>
 
-                {/* Bottom message */}
-                <div className="border-t border-rule pt-5">
-                  <p className="text-[14px] text-t2 mb-3">
-                    If you checked even one — you're losing customers every day your site stays the way it is.
+                {/* Bottom CTA */}
+                <div className="text-center pt-5 border-t border-rule">
+                  <p className="text-[13px] text-t3 mb-3">
+                    Even one? You're losing customers every single day.
                   </p>
                   <a href="#contact" className="inline-flex items-center gap-2 text-[13px] text-gold hover:text-gold-h transition-colors font-medium">
                     Get a free assessment
