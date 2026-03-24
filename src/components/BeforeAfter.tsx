@@ -1,45 +1,53 @@
+const rows = [
+  { feature: 'What you get', others: 'A template with your logo on it', kronaris: 'A custom system built around your business' },
+  { feature: 'Who does the work', others: 'You manage freelancers and agencies', kronaris: 'We take full ownership — start to finish' },
+  { feature: 'Timeline', others: '3–6 months of back and forth', kronaris: 'Live in weeks, not months' },
+  { feature: 'After launch', others: 'They hand it off and disappear', kronaris: 'We optimize and improve every month' },
+  { feature: 'Measured by', others: 'How it looks', kronaris: 'How much revenue it generates' },
+  { feature: 'Communication', others: 'Endless email chains and meetings', kronaris: 'One team, direct access, fast decisions' },
+]
+
 export default function BeforeAfter() {
   return (
     <section className="py-24 md:py-32 relative">
-      {/* Soft background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg-2/50 to-bg pointer-events-none" />
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         <div className="reveal text-center mb-14">
-          <p className="text-[13px] uppercase tracking-[0.2em] text-gold mb-3">The Shift</p>
-          <h2 className="text-[clamp(28px,3.5vw,40px)] font-medium text-t1 tracking-[-0.02em]">See the difference</h2>
+          <p className="text-[13px] uppercase tracking-[0.2em] text-gold mb-3">The Difference</p>
+          <h2 className="text-[clamp(28px,3.5vw,40px)] font-medium text-t1 tracking-[-0.02em]">Not another agency.</h2>
+          <p className="text-t2 text-[16px] mt-3 max-w-[480px] mx-auto">Most firms give you a website. We give you a system that actually grows your business.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {/* Before */}
-          <div className="reveal card p-8 md:p-10">
-            <h3 className="text-[18px] font-medium text-t3 mb-6">What you have now</h3>
-            <ul className="space-y-4">
-              {['A website that doesn\'t bring you customers', 'Tools that don\'t talk to each other', 'Leads slipping through the cracks', 'No clear system for growth'].map(t => (
-                <li key={t} className="flex items-start gap-3 text-t3 text-[15px]">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-t3/30 shrink-0" />
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Comparison table */}
+        <div className="reveal relative overflow-hidden rounded-2xl border border-rule">
+          <div className="absolute -top-20 -right-20 w-60 h-60 bg-gold/[0.04] rounded-full blur-[80px]" />
 
-          {/* After */}
-          <div className="reveal card p-8 md:p-10 relative overflow-hidden" style={{ transitionDelay: '0.08s' }}>
-            {/* Gold accent glow */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-gold/[0.06] rounded-full blur-[60px]" />
-            <div className="relative">
-              <h3 className="text-[18px] font-medium text-t1 mb-6">What you get with Kronaris</h3>
-              <ul className="space-y-4">
-                {['A system built to bring you revenue', 'Clean, connected infrastructure', 'A clear path from visitor to customer', 'Scalable growth that compounds'].map(t => (
-                  <li key={t} className="flex items-start gap-3 text-t1 text-[15px]">
-                    <span className="mt-1 text-gold/70 shrink-0">&#10003;</span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
+          {/* Header row */}
+          <div className="relative grid grid-cols-[1fr_1fr_1fr] md:grid-cols-[1.2fr_1fr_1fr]">
+            <div className="p-4 md:p-5 bg-bg-3/50" />
+            <div className="p-4 md:p-5 bg-bg-3/50 text-center border-l border-rule">
+              <span className="text-[13px] text-t3 font-medium">Other firms</span>
+            </div>
+            <div className="p-4 md:p-5 bg-gradient-to-r from-gold/[0.08] to-gold/[0.03] text-center border-l border-rule">
+              <span className="text-[13px] text-gold font-medium">Kronaris</span>
             </div>
           </div>
+
+          {/* Data rows */}
+          {rows.map((r, i) => (
+            <div key={i} className="reveal relative grid grid-cols-[1fr_1fr_1fr] md:grid-cols-[1.2fr_1fr_1fr] border-t border-rule group hover:bg-bg-3/30 transition-colors" style={{ transitionDelay: `${i * 0.04}s` }}>
+              <div className="p-4 md:p-5">
+                <span className="text-[14px] text-t1 font-medium">{r.feature}</span>
+              </div>
+              <div className="p-4 md:p-5 border-l border-rule flex items-center">
+                <span className="text-[13px] text-t3 leading-snug">{r.others}</span>
+              </div>
+              <div className="p-4 md:p-5 border-l border-rule flex items-center bg-gold/[0.02]">
+                <span className="text-[13px] text-t1 leading-snug">{r.kronaris}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
