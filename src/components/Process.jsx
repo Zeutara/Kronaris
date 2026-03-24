@@ -1,47 +1,29 @@
-const phases = [
-  { n: '01', title: 'Audit', dur: '48h', desc: 'Full infrastructure teardown. Every system, page, and workflow benchmarked.' },
-  { n: '02', title: 'Takeover', dur: 'Day 3', desc: 'Operational control transferred. No committees. No approval chains.' },
-  { n: '03', title: 'Rebuild', dur: 'Wk 1–4', desc: 'Ground-up reconstruction. Performance-tested. Conversion-optimized.' },
-  { n: '04', title: 'Deploy', dur: 'Wk 5', desc: 'Full migration, QA, and launch. Zero downtime. Managed end to end.' },
-  { n: '05', title: 'Compound', dur: 'Ongoing', desc: 'Continuous monitoring and optimization. Infrastructure improves monthly.' },
+const steps = [
+  { n: '01', title: 'Audit', desc: 'We identify what\'s broken and where you\'re losing money.' },
+  { n: '02', title: 'Rebuild', desc: 'We reconstruct everything from the ground up.' },
+  { n: '03', title: 'Launch', desc: 'Your new system goes live, ready to perform.' },
+  { n: '04', title: 'Optimize', desc: 'We refine and improve continuously.' },
 ]
 
 export default function Process() {
   return (
-    <section className="py-16 md:py-20 bg-s1 border-y border-rule" id="process">
-      <div className="max-w-[1400px] mx-auto px-5">
-        <div className="reveal flex items-end justify-between mb-10">
-          <div>
-            <span className="label-gold block mb-2">Execution Framework</span>
-            <h2 className="text-[24px] md:text-[30px] font-light text-w tracking-[-0.02em]">Five phases. One outcome.</h2>
-          </div>
-          <span className="label hidden md:block">Lifecycle</span>
+    <section className="py-20 md:py-[120px]" id="process">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="reveal mb-12 md:mb-16">
+          <h2 className="text-[clamp(28px,3.5vw,36px)] font-medium text-t1 tracking-[-0.02em]">How it works</h2>
         </div>
 
-        {/* Timeline */}
-        <div className="reveal relative" style={{ transitionDelay: '0.08s' }}>
-          {/* Connector line — desktop */}
-          <div className="hidden md:block absolute top-[18px] left-0 right-0 h-px bg-rule" />
-
-          <div className="grid md:grid-cols-5 gap-px">
-            {phases.map((p, i) => (
-              <div key={p.n} className="relative group">
-                {/* Node */}
-                <div className="hidden md:flex items-center justify-center w-9 h-9 border border-rule bg-s1 rounded-full mx-auto mb-5 relative z-10 group-hover:border-gold/30 transition-colors">
-                  <span className="mono text-[10px] text-g3 group-hover:text-gold transition-colors">{p.n}</span>
-                </div>
-
-                {/* Content */}
-                <div className="border border-rule bg-s2/30 p-4 md:p-5 group-hover:bg-s2/60 group-hover:border-rule-light transition-all">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-w text-[14px] font-normal group-hover:text-gold transition-colors">{p.title}</h3>
-                    <span className="mono text-[10px] text-g4">{p.dur}</span>
-                  </div>
-                  <p className="text-g3 text-[12px] leading-[1.6] group-hover:text-g2 transition-colors">{p.desc}</p>
-                </div>
+        <div className="grid md:grid-cols-4 gap-6">
+          {steps.map((s, i) => (
+            <div key={s.n} className="reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-[13px] text-gold/60">{s.n}</span>
+                <div className="flex-1 h-px bg-rule" />
               </div>
-            ))}
-          </div>
+              <h3 className="text-[22px] font-medium text-t1 mb-2">{s.title}</h3>
+              <p className="text-t2 text-[16px] leading-[1.6]">{s.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

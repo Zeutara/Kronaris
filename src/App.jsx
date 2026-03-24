@@ -3,9 +3,10 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import TrustBar from './components/TrustBar'
 import Services from './components/Services'
-import Process from './components/Process'
 import BeforeAfter from './components/BeforeAfter'
+import Process from './components/Process'
 import WhyKronaris from './components/WhyKronaris'
+import Results from './components/Results'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -19,9 +20,10 @@ export default function App() {
         <Hero />
         <TrustBar />
         <Services />
-        <Process />
         <BeforeAfter />
+        <Process />
         <WhyKronaris />
+        <Results />
         <CTA />
       </main>
       <Footer />
