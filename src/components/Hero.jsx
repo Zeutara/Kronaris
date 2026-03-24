@@ -1,49 +1,48 @@
 export default function Hero() {
   return (
-    <header className="relative min-h-[100svh] flex items-end pb-20 md:pb-28 overflow-hidden" id="hero">
+    <header className="relative min-h-[92svh] flex items-end pb-16 md:pb-20 overflow-hidden" id="hero">
       <div className="absolute inset-0 overflow-hidden">
-        <svg className="absolute top-1/2 left-[60%] -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-[0.035]" viewBox="0 0 900 900" fill="none" aria-hidden="true">
-          <circle cx="450" cy="450" r="320" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
-          <circle cx="450" cy="450" r="420" stroke="rgba(255,255,255,0.04)" strokeWidth="0.3" />
-          <path d="M 450 130 A 320 320 0 0 1 770 450" stroke="#C9A063" strokeWidth="0.7" opacity="0.2" />
+        <svg className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-[0.03]" viewBox="0 0 800 800" fill="none" aria-hidden="true">
+          <circle cx="400" cy="400" r="300" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
+          <circle cx="400" cy="400" r="380" stroke="rgba(255,255,255,0.04)" strokeWidth="0.3" />
+          <path d="M 400 100 A 300 300 0 0 1 700 400" stroke="#C9A063" strokeWidth="0.6" opacity="0.18" />
         </svg>
-        <div className="absolute top-[40%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/[0.025] blur-[140px]" style={{ animation: 'glowPulse 10s ease-in-out infinite' }} />
+        <div className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-gold/[0.02] blur-[120px]" style={{ animation: 'glowPulse 10s ease-in-out infinite' }} />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 w-full">
-        <p className="text-[11px] uppercase tracking-[0.4em] text-text-muted mb-6 opacity-0 animate-[fadeUp_0.8s_ease_0.1s_forwards]">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 w-full">
+        <p className="text-xs uppercase tracking-[0.35em] text-text-muted mb-5 opacity-0 animate-[fadeUp_0.7s_ease_0.1s_forwards]">
           Digital infrastructure, rebuilt.
         </p>
 
-        <h1 className="text-[clamp(40px,7.5vw,92px)] font-extralight leading-[1.02] tracking-[-0.04em] max-w-[900px]">
-          <span className="block text-text-primary opacity-0 animate-[fadeUp_0.8s_ease_0.15s_forwards]">We don't redesign.</span>
-          <span className="block text-text-muted opacity-0 animate-[fadeUp_0.8s_ease_0.3s_forwards]">We reconstruct.</span>
+        <h1 className="text-[clamp(44px,8vw,100px)] font-extralight leading-[1.0] tracking-[-0.04em] max-w-[900px]">
+          <span className="block text-white opacity-0 animate-[fadeUp_0.7s_ease_0.15s_forwards]">We don't redesign.</span>
+          <span className="block text-text-muted opacity-0 animate-[fadeUp_0.7s_ease_0.28s_forwards]">We reconstruct.</span>
         </h1>
 
-        <div className="mt-10 md:mt-12 flex flex-col md:flex-row md:items-end gap-10 md:gap-20">
-          <p className="text-text-secondary text-[15px] md:text-[16px] leading-[1.8] max-w-[420px] opacity-0 animate-[fadeUp_0.8s_ease_0.45s_forwards]">
+        <div className="mt-8 flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+          <p className="text-text-secondary text-base md:text-lg leading-[1.7] max-w-[400px] opacity-0 animate-[fadeUp_0.7s_ease_0.4s_forwards]">
             Kronaris rebuilds digital infrastructure for businesses that have outgrown their current capabilities.
           </p>
-
-          <div className="flex gap-3 opacity-0 animate-[fadeUp_0.8s_ease_0.55s_forwards]">
-            <a href="#contact" className="text-[10px] uppercase tracking-[0.18em] font-medium bg-gold text-bg px-7 py-3 hover:bg-[#d4ab6e] transition-all duration-300">
+          <div className="flex gap-3 opacity-0 animate-[fadeUp_0.7s_ease_0.5s_forwards]">
+            <a href="#contact" className="text-[11px] uppercase tracking-[0.16em] font-medium bg-gold text-bg px-7 py-3 hover:bg-[#d4ab6e] transition-all duration-300">
               Request a Rebuild
             </a>
-            <a href="#process" className="text-[10px] uppercase tracking-[0.18em] text-text-muted border border-border px-7 py-3 hover:text-text-secondary hover:border-border-hover transition-all duration-300">
+            <a href="#process" className="text-[11px] uppercase tracking-[0.16em] text-text-muted border border-border px-7 py-3 hover:text-text-secondary hover:border-border-hover transition-all duration-300">
               Our Process
             </a>
           </div>
         </div>
 
-        <div className="flex gap-16 mt-16 pt-8 border-t border-border opacity-0 animate-[fadeUp_0.8s_ease_0.7s_forwards]">
+        <div className="flex gap-14 md:gap-20 mt-14 pt-7 border-t border-border opacity-0 animate-[fadeUp_0.7s_ease_0.6s_forwards]">
           {[
-            { value: '100+', label: 'Rebuilt' },
-            { value: '<48h', label: 'Turnaround' },
-            { value: '3.2×', label: 'Conversion' },
-          ].map((s) => (
-            <div key={s.label}>
-              <div className="text-2xl md:text-3xl font-extralight text-text-primary tracking-tight">{s.value}</div>
-              <div className="text-[9px] uppercase tracking-[0.3em] text-text-muted mt-1">{s.label}</div>
+            { v: '100+', l: 'Rebuilt' },
+            { v: '<48h', l: 'Turnaround' },
+            { v: '3.2×', l: 'Conversion' },
+          ].map(s => (
+            <div key={s.l}>
+              <div className="text-3xl md:text-4xl font-extralight text-white tracking-tight">{s.v}</div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-text-muted mt-1">{s.l}</div>
             </div>
           ))}
         </div>

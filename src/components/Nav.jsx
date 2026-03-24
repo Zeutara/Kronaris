@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import logoFull from '../assets/kronaris-full.png'
-import logoK from '../assets/kronaris-k.png'
 
 const links = [
   { label: 'Services', href: '#services' },
@@ -19,69 +18,47 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const closeMenu = () => {
-    setMenuOpen(false)
-    document.body.style.overflow = ''
-  }
-
-  const toggleMenu = () => {
-    setMenuOpen((v) => !v)
-    document.body.style.overflow = menuOpen ? '' : 'hidden'
-  }
+  const closeMenu = () => { setMenuOpen(false); document.body.style.overflow = '' }
+  const toggleMenu = () => { setMenuOpen(v => !v); document.body.style.overflow = menuOpen ? '' : 'hidden' }
 
   return (
     <>
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-bg/90 backdrop-blur-xl border-b border-border' : 'bg-transparent'}`}>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[72px]">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between h-16 md:h-[72px]">
           <a href="#" aria-label="Kronaris Home">
-            <div
-              className="logo-mask h-12 md:h-14 w-48 md:w-56"
-              style={{
-                WebkitMaskImage: `url(${logoFull})`,
-                maskImage: `url(${logoFull})`,
-              }}
-            />
+            <img src={logoFull} alt="Kronaris" className="logo-img h-20 md:h-24 w-auto" />
           </a>
 
-          <div className="hidden lg:flex items-center gap-10">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-[11px] uppercase tracking-[0.2em] text-text-secondary hover:text-text-primary transition-colors duration-300 relative group py-2"
-              >
+          <div className="hidden lg:flex items-center gap-9">
+            {links.map(l => (
+              <a key={l.href} href={l.href} className="text-xs uppercase tracking-[0.18em] text-text-secondary hover:text-white transition-colors duration-300 relative group py-2">
                 {l.label}
                 <span className="absolute bottom-0 left-0 w-full h-px bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </a>
             ))}
-            <a href="#contact" className="text-[10px] uppercase tracking-[0.2em] text-bg font-medium bg-gold px-6 py-2.5 hover:bg-[#d4ab6e] transition-all duration-300 ml-1">
+            <a href="#contact" className="text-[11px] uppercase tracking-[0.18em] text-bg font-medium bg-gold px-6 py-2.5 hover:bg-[#d4ab6e] transition-all duration-300">
               Get Started
             </a>
           </div>
 
-          <button className="lg:hidden flex flex-col gap-[5px] p-2 z-[60]" onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={menuOpen}>
-            <span className={`block w-5 h-[1.5px] bg-text-primary transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
-            <span className={`block w-5 h-[1.5px] bg-text-primary transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-5 h-[1.5px] bg-text-primary transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`} />
+          <button className="lg:hidden flex flex-col gap-[5px] p-2 z-[60]" onClick={toggleMenu} aria-label="Menu">
+            <span className={`block w-5 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
+            <span className={`block w-5 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`} />
           </button>
         </div>
       </nav>
 
-      <div className={`fixed inset-0 z-50 bg-bg flex flex-col items-center justify-center gap-8 transition-opacity duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div
-          className="logo-mask h-12 w-48 mb-6 opacity-30"
-          style={{ WebkitMaskImage: `url(${logoFull})`, maskImage: `url(${logoFull})` }}
-        />
+      <div className={`fixed inset-0 z-50 bg-bg flex flex-col items-center justify-center gap-7 transition-opacity duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         {links.map((l, i) => (
           <a key={l.href} href={l.href} onClick={closeMenu}
-            className="text-text-primary text-xl uppercase tracking-[0.3em] font-extralight hover:text-gold transition-all duration-300"
-            style={{ transitionDelay: menuOpen ? `${i * 0.06}s` : '0s', opacity: menuOpen ? 1 : 0, transform: menuOpen ? 'translateY(0)' : 'translateY(12px)' }}>
+            className="text-white text-2xl uppercase tracking-[0.25em] font-extralight hover:text-gold transition-all duration-300"
+            style={{ transitionDelay: menuOpen ? `${i * 0.06}s` : '0s', opacity: menuOpen ? 1 : 0, transform: menuOpen ? 'translateY(0)' : 'translateY(10px)' }}>
             {l.label}
           </a>
         ))}
-        <a href="#contact" onClick={closeMenu}
-          className="text-bg text-xs uppercase tracking-[0.2em] font-medium bg-gold px-8 py-3 mt-4 hover:bg-[#d4ab6e] transition-all duration-300"
-          style={{ transitionDelay: menuOpen ? '0.3s' : '0s', opacity: menuOpen ? 1 : 0, transform: menuOpen ? 'translateY(0)' : 'translateY(12px)' }}>
+        <a href="#contact" onClick={closeMenu} className="text-bg text-sm uppercase tracking-[0.18em] font-medium bg-gold px-8 py-3 mt-3 hover:bg-[#d4ab6e] transition-all duration-300"
+          style={{ transitionDelay: menuOpen ? '0.28s' : '0s', opacity: menuOpen ? 1 : 0, transform: menuOpen ? 'translateY(0)' : 'translateY(10px)' }}>
           Get Started
         </a>
       </div>

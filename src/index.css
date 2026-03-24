@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #060608;
-  --color-bg-card: #0c0c0f;
-  --color-bg-elevated: #111115;
-  --color-bg-alt: #09090c;
-  --color-text-primary: #f0f0f2;
-  --color-text-secondary: #a0a0a8;
-  --color-text-muted: #505058;
-  --color-text-body: #c0c0c6;
+  --color-bg: #050507;
+  --color-bg-card: #0a0a0d;
+  --color-bg-elevated: #101014;
+  --color-bg-alt: #08080b;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #c8c8d0;
+  --color-text-muted: #78788a;
+  --color-text-body: #d8d8e0;
   --color-gold: #C9A063;
   --color-gold-dim: rgba(201, 160, 99, 0.10);
-  --color-border: rgba(255, 255, 255, 0.07);
-  --color-border-hover: rgba(255, 255, 255, 0.14);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.18);
   --font-sans: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
@@ -40,30 +40,23 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.02;
+  opacity: 0.015;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px;
 }
 
-/* Logo mask — uses image luminance to cut out black bg */
-.logo-mask {
-  display: inline-block;
-  background: linear-gradient(135deg, #ffffff 60%, #C9A063 100%);
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center left;
-  mask-position: center left;
+/* Logo: crush near-black to black, then screen makes black = transparent */
+.logo-img {
+  filter: contrast(1.8) brightness(1.15);
+  mix-blend-mode: screen;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
@@ -75,7 +68,7 @@ body::after {
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -87,4 +80,3 @@ body::after {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.12); }
