@@ -4,7 +4,7 @@ const rows = [
   { feature: 'Timeline', others: '3–6 months of back and forth', kronaris: 'Live in weeks, not months' },
   { feature: 'After launch', others: 'They hand it off and disappear', kronaris: 'We optimize and improve every month' },
   { feature: 'Measured by', others: 'How it looks', kronaris: 'How much revenue it generates' },
-  { feature: 'Communication', others: 'Endless email chains and meetings', kronaris: 'One team, direct access, fast decisions' },
+  { feature: 'Communication', others: 'Endless emails and meetings', kronaris: 'One team, direct access, fast decisions' },
 ]
 
 export default function BeforeAfter() {
@@ -16,38 +16,54 @@ export default function BeforeAfter() {
         <div className="reveal text-center mb-14">
           <p className="text-[13px] uppercase tracking-[0.2em] text-gold mb-3">The Difference</p>
           <h2 className="text-[clamp(28px,3.5vw,40px)] font-medium text-t1 tracking-[-0.02em]">Not another agency.</h2>
-          <p className="text-t2 text-[16px] mt-3 max-w-[480px] mx-auto">Most firms give you a website. We give you a system that actually grows your business.</p>
         </div>
 
-        {/* Comparison table */}
-        <div className="reveal relative overflow-hidden rounded-2xl border border-rule">
-          <div className="absolute -top-20 -right-20 w-60 h-60 bg-gold/[0.04] rounded-full blur-[80px]" />
-
-          {/* Header row */}
-          <div className="relative grid grid-cols-[1fr_1fr_1fr] md:grid-cols-[1.2fr_1fr_1fr]">
-            <div className="p-4 md:p-5 bg-bg-3/50" />
-            <div className="p-4 md:p-5 bg-bg-3/50 text-center border-l border-rule">
-              <span className="text-[13px] text-t3 font-medium">Other firms</span>
+        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+          {/* Others card — dim, receding */}
+          <div className="reveal rounded-2xl border border-rule bg-bg-2/40 p-7 md:p-9 relative opacity-80">
+            <div className="flex items-center gap-2 mb-8">
+              <span className="w-2 h-2 rounded-full bg-t3/20" />
+              <h3 className="text-[15px] font-medium text-t3 uppercase tracking-wider">Other Firms</h3>
             </div>
-            <div className="p-4 md:p-5 bg-gradient-to-r from-gold/[0.08] to-gold/[0.03] text-center border-l border-rule">
-              <span className="text-[13px] text-gold font-medium">Kronaris</span>
+            <div className="space-y-6">
+              {rows.map((r, i) => (
+                <div key={i}>
+                  <span className="text-[11px] text-t3/50 uppercase tracking-wider block mb-1">{r.feature}</span>
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-t3/30 mt-0.5 shrink-0">&times;</span>
+                    <span className="text-[15px] text-t3 leading-snug">{r.others}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Data rows */}
-          {rows.map((r, i) => (
-            <div key={i} className="reveal relative grid grid-cols-[1fr_1fr_1fr] md:grid-cols-[1.2fr_1fr_1fr] border-t border-rule group hover:bg-bg-3/30 transition-colors" style={{ transitionDelay: `${i * 0.04}s` }}>
-              <div className="p-4 md:p-5">
-                <span className="text-[14px] text-t1 font-medium">{r.feature}</span>
+          {/* Kronaris card — elevated, premium */}
+          <div className="reveal relative" style={{ transitionDelay: '0.08s' }}>
+            {/* Glow */}
+            <div className="absolute -inset-3 bg-gold/[0.04] rounded-3xl blur-[30px]" />
+
+            <div className="relative rounded-2xl border border-gold/20 bg-gradient-to-br from-bg-3 to-bg-2 p-7 md:p-9 h-full">
+              {/* Gold top accent */}
+              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
+              <div className="flex items-center gap-2 mb-8">
+                <span className="w-2 h-2 rounded-full bg-gold/70" />
+                <h3 className="text-[15px] font-medium text-gold uppercase tracking-wider">Kronaris</h3>
               </div>
-              <div className="p-4 md:p-5 border-l border-rule flex items-center">
-                <span className="text-[13px] text-t3 leading-snug">{r.others}</span>
-              </div>
-              <div className="p-4 md:p-5 border-l border-rule flex items-center bg-gold/[0.02]">
-                <span className="text-[13px] text-t1 leading-snug">{r.kronaris}</span>
+              <div className="space-y-6">
+                {rows.map((r, i) => (
+                  <div key={i}>
+                    <span className="text-[11px] text-t3/50 uppercase tracking-wider block mb-1">{r.feature}</span>
+                    <div className="flex items-start gap-2.5">
+                      <span className="text-gold/60 mt-0.5 shrink-0">&#10003;</span>
+                      <span className="text-[15px] text-t1 leading-snug">{r.kronaris}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
