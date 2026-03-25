@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export function useReveal() {
+  const location = useLocation()
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -14,8 +17,13 @@ export function useReveal() {
       { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
     )
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+    const timeout = setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+    }, 50)
 
-    return () => observer.disconnect()
-  }, [])
+    return () => {
+      clearTimeout(timeout)
+      observer.disconnect()
+    }
+  }, [location.pathname])
 }

@@ -1,13 +1,12 @@
+import { Routes, Route } from 'react-router-dom'
 import { useReveal } from './hooks/useReveal'
 import Nav from './components/Nav'
-import Hero from './components/Hero'
-import TrustBar from './components/TrustBar'
-import Services from './components/Services'
-import BeforeAfter from './components/BeforeAfter'
-import Process from './components/Process'
-import WhyKronaris from './components/WhyKronaris'
-import CTA from './components/CTA'
 import Footer from './components/Footer'
+import StickyCtaButton from './components/StickyCtaButton'
+import HomePage from './pages/HomePage'
+import ServicesPage from './pages/ServicesPage'
+import ProcessPage from './pages/ProcessPage'
+import ContactPage from './pages/ContactPage'
 
 export default function App() {
   useReveal()
@@ -15,16 +14,14 @@ export default function App() {
   return (
     <>
       <Nav />
-      <main>
-        <Hero />
-        <TrustBar />
-        <Services />
-        <BeforeAfter />
-        <Process />
-        <WhyKronaris />
-        <CTA />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/process" element={<ProcessPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
       <Footer />
+      <StickyCtaButton />
     </>
   )
 }
